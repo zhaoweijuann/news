@@ -1,0 +1,74 @@
+@charset "utf-8";
+body {
+        width: 100px;
+        height: 100px;
+        background-color: beige;
+        background-image: url(28.jpg);//加一张图片
+}
+#login{
+    position: absolute;//通过绝对定位，元素可以放置到页面上的任何位置。下面的标题距离页面左侧 50%，距离页面顶部 50%。
+    top:50%;
+    left:50%;
+    margin: -150px 0 0 -150px;//这个简写属性设置一个元素所有外边距的宽度，或者设置各边上外边距的宽度。该属性可以有 1 到 4 个值，上外边距是 -150px，右外边距是 0px，下外边距是 0px，左外边距是 -150px
+    width: 300px;
+    height: 300px;
+}
+
+#login h1{
+    color: 	#9393FF;
+    text-shadow: 0 0 10px;//text-shadow 属性向文本设置阴影,其他添加的效果可以在W3school查到。
+    letter-spacing: 1px;//letter-spacing 属性增加或减少字符间的空白（字符间距）
+    text-align: center;//text-align 属性规定元素中的文本的水平对齐方式，这里是居中对齐。
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+input {
+    width: 300px;
+    height: 20px;
+    margin-bottom: 10px;//margin-bottom 属性设置元素的下外边距
+    outline: none;//outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用
+    padding: 10px;//padding 简写属性在一个声明中设置所有内边距属性,所有 4 个内边距都是 10px.
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 1px;//text-shadow属性向文本设置阴影
+    border-top: 1px solid #312E3D;//border-top 属性在一行声明中为上边框设置所有的属性
+    border-left: 1px solid #312E3D;
+    border-right: 1px solid #312E3D;
+    border-bottom: 1px solid #56536A;
+    border-radius: 4px;
+    background-color:#2D2D3F;
+
+}
+
+.tj {
+    width: 300px;
+    min-height: 20px;
+    display: block;
+    background-color: #4a77d4;
+    border: 1px solid #3762bc;//border 简写属性在一个声明设置所有的边框属性
+    color: #fff;
+    padding:  9px 14px;
+    font-size:15px;
+    line-height: normal;//
+    border-radius: 5px;
+    margin: 0px;
+}
+
+.zc {
+    width: 300px;
+    min-height: 20px;
+    display: block;
+    background-color: #33CC33;
+    border: 1px solid #3762bc;
+    color: #fff;
+    padding:  9px 14px;
+    font-size:15px;
+    line-height: normal;//line-height 属性设置行间的距离（行高）
+    border-radius: 5px;
+    margin: 0px;
+}
+
