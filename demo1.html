@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        .my_ul{
+            list-style: none;
+            padding: 0px;
+            height: 80vh;
+            overflow: scroll;
+        }
+        .my_ul img{
+            width: 50px;
+            border-radius: 50%;
+            border: 3px solid red;
+            vertical-align: middle;
+            margin-right: 5px;
+            
+        }
+
+        .my_ul>li{
+            border: 1px solid red;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .search_wrap{
+            padding: 10px;
+        }
+        .search_wrap input{
+            height: 30px;
+            border-radius: 7px;
+            outline: none;
+            border: 1px solid red;
+        }
+        .search_wrap button{
+            border: 1px solid red;
+            border-radius: 5px;
+            height: 30px;
+            width: 60px;
+        }
+        .active{
+            animation: zhuan 4s linear 0s infinite;
+        }
+
+        @keyframes zhuan {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .content{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./imgs/content.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .play_page,.list_page{
+            width: 100%;
+            /* background-color: red; */
+            position: fixed;
+            top: 100vh;
+            transition: all 0.8s;
+            background-size: cover;
+            background-position: center;
+        }
+        
+
+        
+        .meng{
+            width: 100%;
+            height: 100%;
+            background-color:brown;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            padding-top: 10px;
+            /* padding: 15px; */
+            
+        }
+        .meng_bottom{
+            width: 100%;
+            position: absolute;
+            bottom: 20px;
+        }
+        .meng_bottom>div{
+            height: 30px;
+            display: flex;
+        }
+        .bottom1>div,.bottom3>div{
+            flex: 1;
+            background-size: 20px 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        
+        .bottom1>div:nth-child(2){
+            background-image: url(./imgs/model_0.png);
+        }
+        .bottom1>div:nth-child(3){
+            background-image: url(./imgs/play_list.png);
+        }
+
+
+        .bottom2>div:nth-child(1),.bottom2>div:nth-child(3){
+            flex: 1;
+            color: white;
+            font-size: 8px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .bottom2>div:nth-child(2){
+            width: 75%;
+            position: relative;
+        }
+        
+
+
+
+
+        
+        .bottom3>div:nth-child(1){
+            background-image: url(./imgs/prev.png);
+        }
+        .bottom3>div:nth-child(2){
+            background-image: url(./imgs/play.png);
+        }
+        .bottom3>div:nth-child(3){
+            background-image: url(./imgs/next.png);
+        }
+        
+
+        
+        .meng_tou{
+            width: 100%;
+            display: flex;
+            /* padding: 15px; */
+        }
+        
+        .back{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-image: url(./imgs/back.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .title{
+            flex: 1;
+            border-bottom: 1px solid #777;
+            font-size: 11px;
+            padding-left: 20px;
+            padding-bottom: 10px;
+        }
+        .title>span:nth-child(1){
+            color: #ddd;
+        }
+        .title>span:nth-child(3){
+            color: #777;
+        }
+        .share{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+
+            background-image: url(./imgs/share.png);
+            background-size: cover;
+            background-position: center;
+        }
+        .meng_cd{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            position: absolute;
+            left: 0px;
+            top:0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            border-radius: 50%;
+            box-shadow: 0px 0px 50px #999;
+
+            background-size: 110% 110% , 100% 100%;
+            background-position: center , center;
+            
+            
+        }
+
+        .meng_active{
+            animation: zhuan 4s linear 0s infinite;
+        }
+        @keyframes zhuan {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 进度条 */
+        .my_progress{
+            height: 1px;
+            width: 100%;
+            /* background-color: red; */
+            background: linear-gradient(to right , brown 0%, white 0%);
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+        }
+
+        /* 滑块 */
+        .hua_kuai{
+            width: 1.5px;
+            height: 1.5px;
+            background-color: brown;
+            border: 4px solid white;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+            border-radius: 50%;
+            left: 0%;
+        }
+
+        .list_wrap{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        /* 折叠箭头 */
+        .down_arrow{
+            width: 20px;
+            height: 20px;
+            background-image: url(./imgs/down_arrow.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* 列表选项 */
+        .list_second{
+            display: flex;
+
+        }
+        .local_list_item,.search_list_item{
+            flex: 1;
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #aaa;
+        }
+        .list_third{
+            padding: 8px 0px;
+            color: rgb(220, 213, 248);
+            font-size: 11px;
+
+        }
+
+        .list_row{
+            height: 30px;
+            line-height: 30px;
+            display: flex;
+            color: white;
+            font-size: 11px;
+            overflow: hidden;
+            
+        }
+        .list_row>div{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+        }
+        .list_row>div:nth-child(1){
+            width: 20px;
+        }
+        .list_row>div:nth-child(2),.list_row>div:nth-child(3){
+            flex:1;
+        }
+
+        .list_fourth{
+            height: 30vh;
+            overflow: scroll;
+        }
+
+        .bo_red{
+            color: brown;
+        }
+
+
+        
+        
+
+       
+
+        
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div>
+            <audio class="my_audio" src=""></audio>
+        </div>
+        <div class="search_wrap">
+            <input class="my_input" type="text" placeholder="关键字" value="王诗安">
+            <button onclick="searchfn()">搜索</button>
+        </div>
+        <ul class="my_ul">
+            
+        </ul>  
+    </div>
+
+    <div class="play_page">
+        <div class="meng">
+            <div class="meng_tou">
+                <div class="back" onclick="back_fn()"></div>
+                <div class="title">
+                    <span class="m_name">歌曲</span> <br />    
+                    <span class="m_singer">歌手</span>
+                </div>
+                <div class="share"></div>
+            </div>
+            <div class="meng_cd"></div>
+            <div class="meng_bottom">
+                <div class="bottom1">
+                    <div class="souchang_btn"></div>
+                    <div class="model_btn"></div>
+                    <div class="play_list_btn"></div>
+                </div>
+                <div class="bottom2">
+                    <div class="cur_time">
+                        02:27
+                    </div>
+                    <div class="my_progress_wrap">
+                        <div class="my_progress">
+                            <div class="hua_kuai"></div>
+                        </div>
+                    </div>
+                    <div class="all_time">
+                        04:45
+                    </div>
+                </div>
+                <div class="bottom3">
+                    
+                    <div class="prev_btn"></div>
+                    <div class="play_btn"></div>
+                    <div class="next_btn"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="list_page">
+        <div class="list_wrap">
+            <div class="list_firs">
+                <div class="down_arrow"></div>
+            </div>
+            <div class="list_second">
+                <div class="local_list_item">
+                    搜藏列表
+                </div>
+                <div class="search_list_item">
+                    搜索列表
+                </div>
+            </div>
+            <div class="list_third">
+                <div class="all_play_btn"> 播放当前列表 </div>
+            </div>
+            <div class="list_fourth">
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+<script>
+
+    // 0: 收藏列表  1: 搜索列表
+    var play_list_index = 0
+
+    var current_bo_list = 1
+
+    // 0: 单曲循环 , 1: 列表循环 , 2: 随机播放
+    var play_model = 0
+    var play_model_num = 3
+
+    var music_localstorage_key = "MY_MUSIC_LIST"
+    var music_localstorage_list = []
+
+    var already_index = []
+
+    var souchang_btn_ele = get_ele(".souchang_btn")
+    souchang_btn_ele.style.backgroundImage = 'url(./imgs/shoucang_white.png)'
+
+    var model_btn_ele = get_ele(".model_btn")
+    var play_list_btn_ele = get_ele(".play_list_btn")
+
+    var prev_btn_ele = get_ele(".prev_btn")
+    var next_btn_ele = get_ele(".next_btn")
+
+    var my_progress_wrap_ele = get_ele(".my_progress_wrap")
+    var my_progress_ele = get_ele(".my_progress")
+    var hua_kuai_ele = get_ele(".hua_kuai")
+
+    var cur_time_ele = get_ele(".cur_time")
+    var all_time_ele = get_ele(".all_time")
+
+    var meng_cd = get_ele(".meng_cd")
+
+    var play_btn_ele = get_ele(".play_btn")
+
+    var list_fourth_ele = get_ele(".list_fourth")
+
+    var down_arrow_ele = get_ele(".down_arrow")
+
+    var local_list_item_ele = get_ele(".local_list_item")
+    var search_list_item_ele = get_ele(".search_list_item")
+
+   
+
+    var play_page = document.querySelector(".play_page")
+    var play_page_height = 100
+    play_page.style.height = play_page_height + "vh"
+    var list_page = document.querySelector(".list_page")
+    var list_page_height = 50
+    list_page.style.height = list_page_height + "vh"
+
+    var m_name = get_ele(".m_name")
+    var m_singer = get_ele(".m_singer")
+
+    var all_play_btn_ele = get_ele(".all_play_btn")
+    
+
+    var current_index = "kong"
+
+    var my_audio = document.querySelector(".my_audio")
+    var my_ul = document.querySelector(".my_ul")
+    var my_input = document.querySelector(".my_input")
+    var data = []
+    var music_search_list = []
+
+
+    if (localStorage.getItem(music_localstorage_key)) {
+        music_localstorage_list = JSON.parse(localStorage.getItem(music_localstorage_key))
+    }
+
+    function back_fn() {
+        event.stopPropagation()
+        play_page.style.top = "100vh"
+        // meng_cd.className = 'meng_cd'
+        hide_list_page()
+    }
+
+    function searchfn(){
+        event.stopPropagation()
+        my_list(my_input.value)
+    }
+
+    function my_list(aaa){
+        var req = new XMLHttpRequest()
+        req.open("POST" , "http://localhost:5000/music_list" , true)
+        req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        req.send("keyword="+aaa)
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {
+                var search_data = JSON.parse(req.responseText)
+                search_data = search_data.data.list
+                console.log(search_data)
+
+                render_search_list(search_data)
+                data = search_data
+                music_search_list = search_data
+            }
+        }
+    }
+
+    function render_list(){
+        if (play_list_index == 0) {
+            render_local_list(music_localstorage_list)
+            get_ele(".list_second>div:nth-child(1)").style.color = "red"
+            get_ele(".list_second>div:nth-child(2)").style.color = "white"
+        } else if (play_list_index == 1) {
+            render_local_list(music_search_list)
+            get_ele(".list_second>div:nth-child(1)").style.color = "white"
+            get_ele(".list_second>div:nth-child(2)").style.color = "red"
+        }
+
+    }
+
+    function render_search_list(search_data){
+        var kong = ""
+        for (var i = 0; i < search_data.length; i++) {
+            kong = kong + "<li> <img src='" + search_data[i].pic120 + "' />" + search_data[i].name + "<button onclick='playFn(" + i + ")'>播放</button></li>"
+        }
+
+        my_ul.innerHTML = kong
+    }
+    
+    function render_local_list(search_data){
+
+        
+        var kong = ""
+        for (var i = 0; i < search_data.length; i++) {
+            var is_red = ""
+            if (current_bo_list == play_list_index && current_index == i) {
+                is_red = "bo_red"
+            }
+            kong = kong + `
+                <div class="list_row ` + is_red + `">
+                    <div> ` + (i + 1) + ` </div>
+                    <div> ` + search_data[i].name + ` </div>
+                    <div> ` + search_data[i].artist + ` </div>
+                </div>
+            `
+        }
+
+        list_fourth_ele.innerHTML = kong
+    }
+
+    function get_info_by_index(index){
+        var curr_data = data[index]
+        m_name.innerHTML = curr_data.name
+        m_singer.innerHTML = curr_data.artist
+        play_page.style.backgroundImage = "url(" + curr_data.pic120 + ")"
+        
+        meng_cd.style.backgroundImage = "url(./imgs/cd.png) , url(" + curr_data.pic120 + ")"
+
+        return curr_data
+    }
+
+    function play_by_rid(rid){
+        var req = new XMLHttpRequest()
+        req.open("POST" , "http://localhost:5000/get_mp3" , true)
+        req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        req.send("rid="+ rid)
+        req.onreadystatechange = function () {
+            var music_data = JSON.parse(req.responseText)
+            var music_url = music_data.url
+            my_audio.src = music_url
+            my_audio.play()
+            meng_cd.className = 'meng_cd meng_active'
+        }
+    }
+
+    function zhuan_by_index(index) {
+        var all_li_img = document.querySelectorAll("ul>li img")
+        for (var i = 0; i < all_li_img.length; i++) {
+            if (index == i) {
+                document.querySelectorAll("ul>li img")[i].className = "active"
+            } else {
+                document.querySelectorAll("ul>li img")[i].className = ""
+            }
+        }
+    }
+
+    function playFn(index){
+        event.stopPropagation()
+        play_page.style.top = "0vh";
+        
+        var curr_data = get_info_by_index(index)
+        is_soucang(curr_data)
+
+        if (current_index != index) {
+            current_index = index
+
+            zhuan_by_index(index)
+
+            play_by_rid(curr_data.rid)
+        }
+    }
+
+    setInterval(() => {
+        audio_listener()
+    }, 1000);
+
+    function is_soucang(tmp_data) {
+        var is_you = false
+        for (var i = 0; i < music_localstorage_list.length; i++) {
+            if (tmp_data.rid == music_localstorage_list[i].rid) {
+                is_you = true
+                souchang_btn_ele.style.backgroundImage = 'url(./imgs/shoucang_red.png)'
+            }
+        }
+
+        if (is_you == false) {
+            souchang_btn_ele.style.backgroundImage = 'url(./imgs/shoucang_white.png)'
+        }
+
+        return is_you
+    }
+    
+    function audio_listener(){
+        if (my_audio.paused == false) {
+            var cur_time = get_time_format(my_audio.currentTime)
+            var all_time = get_time_format(my_audio.duration)
+
+            cur_time_ele.innerText = cur_time
+            all_time_ele.innerText = all_time
+
+            var percent = my_audio.currentTime / my_audio.duration * 100
+
+            if (!isNaN(percent)) {
+                change_position(percent)
+            }
+            
+
+        } else if (my_audio.ended == true) {
+            if (play_model == 0) {
+                // 单曲循环
+                play_by_index()
+            } else if (play_model == 1) {
+                // 列表循环
+                next_music()
+            } else if (play_model == 2) {
+                play_random()
+                
+            }
+            
+        }
+    }
+
+    function play_random(){
+        get_random_index()
+        play_by_index()
+    }
+
+    function get_random_index() {
+        if (already_index.length == data.length - 1) {
+            already_index = []
+        }
+        // 随机播放
+        var rand_index = my_random(0 , data.length)
+        while (already_index.indexOf(rand_index) != -1) {
+            rand_index = my_random(0 , data.length)
+        }
+        current_index = rand_index
+        already_index.push(rand_index)
+    }
+
+    function my_random(min , max){
+        return parseInt(Math.random() * (max - min) + min)
+    }
+
+    function next_music(){
+        if (play_model == 2) {
+            play_random()
+        } else {
+            current_index++
+            current_index = current_index % data.length
+            play_by_index()
+        }
+    }
+
+    function prev_music(){
+        if (play_model == 2) {
+            play_random()
+        } else {
+            current_index--
+            if (current_index == -1) {
+                current_index = data.length - 1
+            }
+            play_by_index()
+        }
+    }
+
+    function show_list_page () {
+        list_page.style.top = 100 - list_page_height - 20 + "vh";
+    }
+
+    function hide_list_page () {
+        list_page.style.top = "100vh";
+    }
+
+    function show_play_page () {
+        list_page.style.top = 100 - play_page_height + "vh";
+    }
+
+    function hide_play_page () {
+        list_page.style.top = "100vh";
+    }
+
+    function get_music_index_from_arr(arr , obj){
+        for (var i = 0; i < arr.length; i++) {
+            if (obj.rid == arr[i].rid) {
+                return i
+            }
+        }
+
+        return -1
+    }
+
+    function play_by_index() {
+        zhuan_by_index(current_index)
+        var curr_data = get_info_by_index(current_index)
+        play_by_rid(curr_data.rid)
+
+        // meng_cd.className = 'meng_cd meng_active'
+
+        if (list_page.style.top == 100 - list_page_height - 20 + "vh") {
+            console.log(play_list_index , current_bo_list , current_index)
+            if (play_list_index == current_bo_list) {
+                var all_row = document.querySelectorAll(".list_row")
+                for (var i = 0; i < all_row.length; i++) {
+                    if (i == current_index) {
+                        all_row[i].className = "list_row bo_red"
+                    } else {
+                        all_row[i].className = "list_row"
+                    }
+                }
+            }
+        }
+    
+        check_is_soucang()
+        
+    }
+
+    function check_is_soucang() {
+        var is_soucang = false
+        for (var i = 0; i < music_localstorage_list.length; i++) {
+            if (music_localstorage_list[i].rid == data[current_index].rid) {
+                is_soucang = true
+                break
+            }
+        }
+
+        if (is_soucang) {
+            souchang_btn_ele.style.backgroundImage = 'url("./imgs/shoucang_red.png")'
+        } else {
+            souchang_btn_ele.style.backgroundImage = 'url("./imgs/shoucang_white.png")'
+        }
+    }
+
+    function change_position(percent){
+        my_progress_ele.style.background = "linear-gradient(to right , red " + percent + "%, white 0%)"
+        hua_kuai_ele.style.left = percent + "%"
+    }
+
+    function get_time_format(tmp_time){
+        var fen = parseInt(tmp_time / 60)
+        var miao = parseInt(tmp_time % 60)
+        if (fen < 10) {
+            fen = "0" + fen
+        } 
+        if (miao < 10) {
+            miao = "0" + miao
+        }
+        
+        return fen + ":" + miao
+    }
+
+    prev_btn_ele.onclick = function () {
+        event.stopPropagation()
+        prev_music()
+    }
+
+    next_btn_ele.onclick = function () {
+        event.stopPropagation()
+        next_music()
+    }
+
+    my_progress_wrap_ele.onclick = function () {
+        event.stopPropagation()
+        if (my_audio.paused == false) {
+            var click_percent = event.offsetX / this.clientWidth
+            my_audio.currentTime = my_audio.duration * click_percent
+            change_position(click_percent * 100)
+        }
+
+        
+    }
+
+    model_btn_ele.onclick = function (){
+        event.stopPropagation()
+
+        play_model = (play_model + 1) % play_model_num
+
+        get_ele(".bottom1>div:nth-child(2)").style.backgroundImage = "url(./imgs/model_" + play_model + ".png)"
+    }
+
+    play_btn_ele.onclick = function () {
+        event.stopPropagation()
+        if (my_audio.paused == false) {
+            this.style.backgroundImage = 'url(./imgs/pause.png)'
+            meng_cd.className = "meng_cd"
+            my_audio.pause()
+        } else {
+            this.style.backgroundImage = 'url(./imgs/play.png)'
+            meng_cd.className = "meng_cd meng_active"
+            my_audio.play()
+        }
+    }
+
+    souchang_btn_ele.onclick = function () {
+        event.stopPropagation()
+        if (this.style.backgroundImage.indexOf("shoucang_white.png") != -1) {
+            // 搜藏
+            music_localstorage_list.push(data[current_index])
+            localStorage.setItem(music_localstorage_key , JSON.stringify(music_localstorage_list))
+            this.style.backgroundImage = 'url("./imgs/shoucang_red.png")'
+        } else {
+            // 取消搜藏
+            var dele_index = get_music_index_from_arr(music_localstorage_list , data[current_index])
+            music_localstorage_list.splice(dele_index , 1)
+            localStorage.setItem(music_localstorage_key , JSON.stringify(music_localstorage_list))
+            this.style.backgroundImage = 'url("./imgs/shoucang_white.png")'
+        }
+    }
+
+    play_list_btn_ele.onclick = function () {
+        event.stopPropagation()
+        show_list_page()
+        render_list()
+    }
+
+    down_arrow_ele.onclick = function () {
+        event.stopPropagation()
+        hide_list_page()
+    }
+
+    local_list_item_ele.onclick = function () {
+        event.stopPropagation()
+        play_list_index = 0
+        render_list()
+    }
+
+    search_list_item_ele.onclick = function () {
+        event.stopPropagation()
+        play_list_index = 1
+        render_list()
+    }
+
+    all_play_btn_ele.onclick = function () {
+        event.stopPropagation()
+        if (music_localstorage_list.length > 0) {
+
+            if (play_list_index == 0) {
+                data = music_localstorage_list
+            } else if (play_list_index == 1) {
+                data = music_search_list
+            }
+
+            current_bo_list = play_list_index
+
+            current_index = 0
+
+            play_by_index()
+            render_search_list(data)
+        } 
+        
+    }
+    
+    function get_ele(ele_name){
+        return document.querySelector(ele_name)
+    }
+
+</script>
+</html>

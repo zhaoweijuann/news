@@ -1,0 +1,833 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的blog</title>
+<script type="text/javascript">
+window.onload=function(){
+			var oMainnav=document.getElementById("mainnav");
+			var oContent1=document.getElementById("content1");
+			var aLi=oMainnav.getElementsByTagName("li");
+			var aUl=oContent1.getElementsByTagName("ul");
+			var i=0;
+				aUl[0].style.display="block";
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index=aUl[i].index=i;
+
+				aLi[i].onclick=function(){
+					for (var i = 0; i < aLi.length; i++) {
+					
+					aUl[i].style.display='none';
+					
+					};
+					aUl[this.index].style.display='block';
+				}
+
+			}
+		}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+function MM_displayStatusMsg(msgStr) { //v1.0
+  window.status=msgStr;
+  document.MM_returnValue = true;
+}
+</script>
+<style type="text/css">
+body{
+	width: 1200px;
+	margin: 0px auto;
+	padding: 0px;
+	font: 16px  "仿宋" #333;
+	background-color: #fff;
+}
+body,td,th {
+	font-family: "仿宋";}
+li{
+	list-style:none;}
+h2 {
+	font-size: 16px;
+	color: #000;
+}
+header{
+	margin: 0px auto;
+	padding:0 auto;
+	border-bottom:#333333 solid 1px;}
+#clear{clear:both;}
+#frist{
+	height:30px;
+	border-bottom:#333333 solid 1px;
+	line-height:30px;
+	background:#000;
+	margin:0 auto;}
+#top{
+	float:left;
+	line-height:30px;
+	padding:0 60px;
+	margin-right:50px;}
+.button{
+	font:16px "正楷";
+	color:#fff;	
+	margin:0 10px;
+    padding:auto 15px;
+    height:30px;
+    display:inline-block;
+	border-radius:10px;
+	background:url(images/button.png) no-repeat;}
+#audio{
+	float:right;
+	padding:0px;
+	height:30px;
+	}
+.audio{
+	height:30px;
+	width:230px;margin-right:55px;}
+
+#nav{width:1200px;
+     height:50px;
+	 background:#000;
+	 margin:0 auto;
+	 padding:0 auto;}
+
+menu{
+	float:left;
+	font:18px "verdana" #fff;
+	height:50px;
+	margin:0px auto;}
+menu>ul{
+	padding-left:30px;   
+	line-height:50px;}
+menu>ul>li{
+	float:left;
+    line-height:50px;
+    margin:0px auto;}
+menu>ul>li>a{ 
+    padding:0 55px; 
+	height:50px; 
+	display:block;
+	text-decoration:none; 
+	color:#fff;}
+menu>ul>li>a:hover,menu>ul>li>a#selected{ 
+    color:#000;
+	font-weight:900;
+	background:#fff;}
+menu>ul>li>ul{ 
+    line-height: 25px; 
+	list-style-type: none
+    width:100%;
+	width:140px;
+	background:#000;
+	border:1px solid #000;
+	left:-999em; 
+	position: absolute;}
+menu>ul>li>ul>li{ 
+    margin-left:-40px;
+	list-style:none;
+    text-align:center;
+    line-height:45px; 
+    height:45px;
+	border-bottom:1px solid #fff;}
+menu>ul>li>ul>li>a{ 
+    display: block;  
+    padding:0; 
+	font-weight:900;
+	line-height:45px; 
+	text-decoration:none; 
+	color:#fff;
+	text-align:center;}
+menu>ul>li>ul>li>a:hover{ 
+	color:#000;	
+	background:#fff;}
+menu>ul>li:hover ul{
+	display:block;}
+menu li:hover ul {left: auto;}
+
+#sebu{
+	float:right;
+	line-height:40px;
+	height:40px;
+	padding:5px;}
+#button{
+	height:35px;
+	background:#000;
+	color:#fff;
+	border-radius:10px;margin-right:55px;}
+#search{
+	height:35px;
+	background:#000;
+	border-radius:20px;}
+#bigmain{}
+#main{
+    color:#000;
+	font-family:"宋体";
+	font-size:16px;
+	width:1120px;
+	padding:20px 0px 40px 40px; 
+	text-align:center;
+	margin:20px auto;}
+#rightlist{
+	float:right;
+	width:340px;
+	margin:10px 10px 0 auto;}
+#rightlist h2{
+	text-align:center;
+	color:#fff;}
+#rightlist a{
+	color:#fff;
+	margin:0 5px;
+	text-decoration:none;}
+#rightlist a:hover{
+	text-decoration:underline;}
+#mingpian{
+	background:#000;
+	color:#fff;
+	border:1px solid #000;
+	padding:10px 15px;
+	margin:10px 10px auto 0 ;
+	border-radius:5px;	
+	text-align:left;	}
+#video{
+	background:#000;
+	color:#fff;
+	border:1px solid #000;
+	padding:10px 15px;	
+	border-radius:5px;
+	margin:10px 10px auto 0 ;}
+.video{
+	width:250px;
+    height:200px;
+	border-radius:5px;}
+#tuijian{
+	background:#000;
+	color:#fff;
+	border:1px solid #000;
+	padding:10px 15px;
+	border-radius:5px;
+	margin:10px 10px auto 0 ;	
+	text-align:left;}
+#lianjie{
+	background:#000;
+	color:#fff;
+	border:1px solid #000;
+	padding:10px 15px;	
+	border-radius:5px;
+	margin:10px 10px auto 0 ;
+	text-align:left;}
+#leftlist{
+	float:left;
+	width:750px;
+	height:auto;
+	margin:10px 10px 0 auto;}
+#banner{
+	height:300px;
+	width:700px;
+    margin:5px 0px;
+    text-align:center;
+	border:#000 solid 1px;
+    overflow:hidden;
+	border-radius:5px;}
+#banner img {
+	width:700px;
+    height:300px;
+    margin-left:0px;
+    float:left;}
+#bannerimg{
+	width:3500px;
+    height:300px;
+    -moz-animation:abc 20s ease-in-out infinite;
+    -webkit-animation:abc 20s ease-in-out infinite;
+	-mos-animation:abc 20s ease-in-out infinite;}
+@keyframes abc{
+	0%{margin-left:0px;}
+    20%{margin-left:-700px;}
+    40%{margin-left:-1400px;}
+    80%{margin-left:-2100px;}
+    100%{margin-left:-2800px;}
+}
+#zhuanti{
+    width:700px;
+    margin:0px 0px;
+    text-align:center;}
+#mainnav{
+    float:left;
+    width:700px;
+    height:54px;
+	margin:0px ;
+    background:#000;
+    border:1px #000 solid;
+	border-radius:5px;}
+#mainnav ul{
+	height:50px;
+	float:left;
+	margin:0px;}
+#mainnav ul li{
+	height:50px;
+	float:left;
+	margin:0 20px;}
+#mainnav ul li a{
+	font:18px "verdana";
+	display:block;
+	color:#fff;
+	text-decoration:none;}
+#mainnav ul li a:hover{	
+	font-weight:600;}
+#content1{width:700px;}
+#content1 ul{display:none;}
+.zjxw{
+	font-size:12px;
+	width:700px;
+	margin:0px;
+	padding:0px;}
+.zjxw img{width:150px;
+	height:150px;
+	border-radius:5px;}
+.zjxw a{
+	text-decoration:none;
+	font-weight:500;
+	color:#000;
+	line-height:16px;
+	font-size:16px;}
+.xw a:hover{font-size:16px;
+	font-weight:600;}
+.xw{
+	line-height:14px;
+	list-style:none;
+	float:left;
+	width:190px;
+	height:300px;
+	margin:5px;
+	padding:5px;
+	border:1px solid #CCC;
+	border-radius:5px;}
+.xw p{
+	text-align:center;}
+.xw span{
+	text-align:left;}
+.xwzj{
+	width:700px;
+	margin:0px;
+	padding:0px;
+	text-align:center;}
+.xwzj li{
+	margin:10 auto;
+	padding:auto;}
+.xwzj a{
+	font-family:"仿宋";
+	text-decoration:none;}
+.xwzj a:hover{
+	font-size：18px;
+	font-weight:600;}
+.xwzj table{
+     text-align:left;
+	margin:20px auto;
+	padding:0px auto;
+	border:0px;}
+.xwzj td{
+	border-bottom:1px solid #000;
+	border-right:1px solid #000;
+	border-left:1px solid #000;
+	line-height:50px;}
+.xwzj td a{
+	color:#000;
+	height:50px;
+	font-size:16px;
+	padding-left:10px;}
+.xwzj td:hover{
+    background:#C2E0E0;}
+caption{
+	background:#000;
+	line-height:50px;
+	height:50px;}
+caption a{color:#fff;
+	font-size:20px;}
+.xwzj span{
+	float:right;
+	padding-right:5px;
+	color:#000;
+	height:50px;
+	line-height:50px;
+	font-size:16px;}
+.yqlj{
+	font-size:16px;
+	width:700px;
+	margin:0px;
+	padding: 0px;
+	text-align:left;}
+.yqlj ul{
+	padding:0 10px 10px 10px;	
+	margin:0px;}
+.yqlj li{
+	padding:10px;	
+	margin:10px 0px;
+	line-height:35px;
+	height:35px;
+	border-radius:5px;
+	border:1px solid #000;}
+.yqlj li a{
+	text-decoration:none;
+	color:#000;
+	font-family:"仿宋";}	
+.yqlj li a:hover{
+	font-size：18px;
+	font-weight:600;}
+footer{	
+    width:1200px;
+	height:170px;
+	margin:10px auto;
+	background:#000;
+	padding:10px;
+	color:#fff;}
+footer h2{
+	color:#fff;}
+footer a{
+	text-decoration:none;
+	color:#fff;}
+footer a:hover{
+	text-decoration:underline;}
+#boxs{
+	padding:10px;
+	height:150px;}
+#wxbox{	
+	float:left;
+	width:150px;
+	height:150px;
+	line-height:20px;
+	font-size:14px;
+	margin-right:10px;
+	text-align:center;}
+#endfont{
+	text-align:left;	
+	float:left;
+	width:1000px;
+	line-height:25px;	
+	height:150px;
+	padding-left:10px;} 
+</style>
+</head>
+
+<body onmouseover="MM_displayStatusMsg('欢迎来到我的blog');return document.MM_returnValue">
+<header>
+ <div id="frist">
+  <div id="top">
+<form>
+<a href="login.html"><input type="button" class="button" value="登录"></a>
+<a href="register.html"><input type="button" class="button" value="注册"></a>
+<a href="#"><input type="button" class="button" value="QQ登录"></a>
+<a href="login.html"><input type="button" class="button" value="注销"></a>
+</form>
+  </div>
+  <div id="audio">
+  <audio controls class="audio">
+  <source src="audio/00-00-00_□□□.mp3" type="audio/mp3">
+  </audio>
+  </div><!-- audio -->
+ </div>
+ <div id="clear"></div>
+ <div id="nav">
+  <menu>
+  <ul>
+    <li><a href="#" id="selected">首页</a></li>
+    <li><a href="#">学无止境</a>
+     <ul>
+     <li><a href="#">JAVA程序</a></li>
+     <li><a href="#">C语言程序</a></li>
+     <li><a href="#">数据库结构</a></li>
+     </ul>
+    </li>
+    <li><a href="#">热爱生活</a>
+    <ul>
+      <li><a href="demo1.html">Music</a></li>
+      <li><a href="index3.html">Image</a></li>
+      <li><a href="#">Movie</a></li></ul>
+    </li>
+    <li><a href="#">Blog留言</a></li>
+    <li><a href="#">友情链接</a></li>
+    </ul>
+  </menu>
+  <div id="sebu">  
+  <input type="text" name="search" placeholder="搜索"id="search">
+  <input type="button" name="button" id="button" value="搜索">
+  </div><!-- search.button -->
+ </div><!-- nav -->
+</header>
+<div id="bigmain">
+<div id="main">
+<div id="rightlist">
+ <div id="mingpian">
+<h2>我的名片</h2>
+<p>网名：赵赵</p>
+<p>年级：大二</p>
+<p>地址：郑州工商学院</p>
+<p>Email:<a href="mailto:2427128486@qq.com">2427128486@qq.com</a></p>
+ </div><!-- mingpian -->
+ <div id="tuijian">
+<h2>我的推荐</h2>
+<p><a href="https://www.csdn.net/">CSDN-专业IT技术社区</a></p>
+<p><a href="http://www.vogue.com.cn/">VOGUE时尚网</a></p>
+<p><a href="https://www.w3school.com.cn/index.html">W3school在线教程</a></p>
+<p><a href="https://www.runoob.com/">菜鸟教程 - 学的不仅是技术，更是梦想</a></p>
+<p><a href="https://www.yangqq.com/link.html">优秀个人博客展示</a></p>
+ </div><!-- tuijian -->
+ <div id="video">
+ <h2>电影逃学威龙片段</h2>
+ <video controls poster class="video">
+ <source src="video/video.mp4" type="video/mp4">
+ </video>
+ </div><!-- video -->
+ <div id="lianjie">
+ <h2>友情链接</h2>
+ <p><a href="https://abduzeedo.com/">Abduzeedo</a></p>
+ <p><a href="https://www.canva.cn/">Canva在线平面设计软件</a></p>
+ <p><a href="https://abduzeedo.com/">Github登录</a></p>
+<p><a href="https://pixabay.com/">Pixabay</a></p>
+<p><a href="https://web.500px.com/">Discover the world's best photos</a></p>
+ </div><!-- lianjie -->
+</div><!-- rightlist -->
+<div id="leftlist">
+ <div id="banner">
+ <div id="bannerimg">
+ <img src="images/banner1.gif" width="700" height="300">
+ <img src="images/banner2.png" width="700" height="300">
+ <img src="images/banner3.png" width="700" height="300">
+ <img src="images/banner4.png" width="700" height="300">
+ <img src="images/banner5.jpg" width="700" height="300">
+ </div>
+ </div><!-- banner -->
+ <div id="zhuanti">
+  <div id="mainnav">
+  <ul>
+  <li><h2><a href="#">最近新闻</a></h2></li>
+  <li><h2><a href="#">学无止境</a></h2></li>
+  <li><h2><a href="#">友情链接</a></h2></li>
+  </ul>
+  </div><!-- mainnav -->
+  <div id="clear"></div>
+  <div id="content1">
+     <div class="zjxw">
+     <ul>
+      <li width="200px" height="200px">
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-1.jpg"></a>
+      <a href="#" target="blank"><p>上海为什么需要文学艺术翻译奖？</p></a>
+      <span>此次设立的“翻译奖”，将对标国际最高水平，积极打造一个立足上海、服务全国、面向世界，高规格、高品质、高影响力的文学艺术翻译奖项。</span>
+	  </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-2.jpg"></a>
+      <a href="#" target="blank"><p>人民日报：2019年中国电影力攀高峰谱新篇</p></a>
+      <span>在全球电影市场增长放缓的背景下，中国电影产业指标再创新高，产业基础稳固坚实。可以说，中国电影潜力巨大、活力澎湃。</span>
+      </div></li>
+      <li>
+	  <div class="xw"><a href="#" target="blank"><img src="images/con1-3.jpg"></a>
+      <a href="#" target="blank"><p>香港警方：平安夜拘捕105人，年龄最小者13岁</p></a>
+      <span>香港警方25日证实，12月24日在湾仔警察总部对开拘捕105人，年龄介于13岁至58岁之间。被捕者包括58男47女，他们涉嫌参与未经批准的集结。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-4.jpg"></a>
+      <a href="#" target="blank"><p>中青报调查：过半受访青年坦言自己容易待在“舒适区”</p></a>
+      <span>65.2%的受访青年坦言自己爱拖延，总想着“明天再行动”。57.0%的受访青年坦言自己容易待在“舒适区”，不想跳出来。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-5.jpg"></a>
+      <a href="#" target="blank"><p>中国内地首条穿海地铁通车运营，穿越海底仅需3分钟</p></a>
+      <span>12月25日，铁四院总体设计的中国内地首条穿海地铁隧道——厦门地铁2号线通车运营。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-6.jpg"></a>
+      <a href="#" target="blank"><p>《庆余年》热播，完结十年的网文小说又登上了畅销榜榜首</p></a>
+      <span>除了针对小说读者和电视剧观众两类不同群体对原著进行合理改编之外，《庆余年》电视剧还将原著的“共鸣感”更进了一层。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-7.jpg"></a>
+      <a href="#" target="blank"><p>三艘远望号船布阵大洋，静待“胖五”飞天接力完成海上测控</p></a>
+      <span>承担长征五号遥三火箭发射海上测控任务的远望3号、5号、7号船，在奔赴任务预定海区途中，顺利完成三船间测控、通信联调演练，全面检验各类设备参试状态。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-8.jpg"></a>
+      <a href="#" target="blank"><p>多图｜“6+1”，木星南极又多了一个新气旋</p></a>
+      <span>这些气旋会像地球上的风暴一样短暂，还是较为固定的结构？此前，“朱诺”号每次拍到的图像都比较稳定，直到2019年11月3日的新发现。</span>
+      </div></li>
+      <li>
+      <div class="xw"><a href="#" target="blank"><img src="images/con1-9.jpg"></a>
+      <a href="#" target="blank"><p>3D面具骗过人脸识别？ 软硬件联手确保刷脸支付安全</p></a>
+      <span>当前，刷脸支付用户过亿，钱和手机深度绑定，刷脸支付安不安全确实是切身相关的问题，风吹草动受人关注。</span>
+      </div></li>
+	 </ul>
+     </div>
+     <div class="xwzj">    
+     <ul>
+     <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">视频/音频处理</a>
+     </caption>
+  <tr>
+	  <td><a href="#">自定义Android相机(仿抖音)，其中功能包括视频人脸识别贴纸等</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">Android库在recyclelerview中自动播放/暂停来自url的视频</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">很棒的音频部件t适用于任何Android音乐应用程序</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">Android rtmp rtsp 推流客户端</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">MP3音频录制，支持类似IOS原生的单边或者双边波形显示</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">App界的一股清流 音视频应有尽有 </a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">VideoTrimmer提供UI和机制来修剪Android应用的本地视频 </a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">下拉刷新</a>
+     </caption>
+  <tr>
+    <td><a href="#">强大和智能的RefreshLayout，支持越界回弹，集成了几十种Header和 Footer</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">DropDownView一个简单的下拉视图内置动画</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">SmoothRefreshLayout一个较为强大的下拉刷新加载库，支持多种模式</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">模仿 iOS 下拉刷新“水滴”效果，支持下拉刷新和上拉加载</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">ParallaxListView - 模仿Path的下拉刷新，Head头部图片下拉放大</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#"> FireworkyPullToRefresh 下拉刷新并产生烟花效果</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#"> PullRefreshLayout 纯嵌套滑动实现下拉刷新、上拉加载</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">学习教程</a>
+     </caption>
+  <tr>
+    <td><a href="#">适用于Android的Firebase快速入门示例</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">一些很棒的Android参考，如最佳做法，性能优化等</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">使用动画可视化算法和数据结结构</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">一些很不错的Android开发技巧</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Android 名企面试题及涉及知识点整理</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">RxSwift 中文文档</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+	  <td><a href="#">Android学习过程的一些总结</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="v" >布局（layout）</a>
+     </caption>
+  <tr>
+    <td><a href="#">Groupie可以帮助您展示和管理复杂的RecyclerView布局</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Proteus : 带数据绑定的JSON LayoutInflater </a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">一个灵活，易于使用用于创建独特抽屉导航的Android库</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Android布局显示模板加载，空，错误等状态</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Dachshund Tab Layout 扩展的Android标签布局拥有动画指示器</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">PagerLayoutManager一个Android 网格分页布局</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">简单实用的页面多状态布局(content,loading,empty,error)</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>   
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">Python开发</a>
+     </caption>
+  <tr>
+    <td><a href="#">基于Python的搜索引擎检索日志数据分析</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">基于深度学习的图像分割在高德的实践</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Flask 和 requests 搭建一个简单的API服务</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">用Python对哈利波特系列小说进行情感分析</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">图神经网络（AliGraph）在阿里巴巴的发展与应用</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">关于flask-sqlalchemy的用法研究</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Airbnb深度学习搜索引擎实践－模型发展历程</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">JAVA开发</a>
+     </caption>
+  <tr>
+    <td><a href="#">深入理解 Java 线程池</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Spring Boot启动命令参数详解及源码分析</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Elasticsearch 分词</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">springboot+k8s+抛弃springcloud.eureka</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">一文解析 RabbitMQ 最常用的三大模式</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Mybatis代码生成器Mybatis-Generator使用详解</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Maven 快速入门</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">Javascript开发</a>
+     </caption>
+  <tr>
+    <td><a href="#">手把手教你打造一款轻量级canvas渲染引擎</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">写给前端工程师的 Flutter 详细教程</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">JavaScript 引擎 V8 执行流程概述</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">34 个今年11月最受欢迎的 JavaScript 库</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">D3 js实现简洁实用的动态仪表盘</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">前端面试题整理</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+<td><a href="#">webpack入门指南（基于webpack v4.41.2）</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">表单相关控件</a>
+     </caption>
+  <tr>
+    <td><a href="#">reactivesearch用于构建类似于Airbnb及Yelp搜索体验的React组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">rc-slider - React的滑块UI组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">react-tag-input - 一个极其简单的标签React组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td> <a href="#">react-toggle - 一个优雅的,可以切换的React组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">react-input-autosize - React的自动调整大小输入框</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">React Fine Uploader - 一个灵活和强大的文件上传react小部件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">React Hooks绑定到🏁FinalForm的基于订阅的高性能表单状态管理引擎</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+      <li><table width="100%" border="0.5" cellspacing="0">
+     <caption>
+     <a href="#">UI布局</a>
+     </caption>
+  <tr>
+    <td><a href="#">Dashboard 📺使用自定义小部件创建自己的团队仪表板</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">Dragact 拖拽自动布局组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">react-event-timeline 生成一个React.js的响应式事件时间线</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">flexbox-react：符合标准flexbox组件</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">react+redux-chat 模仿实现PC微信聊天</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">grid-styled 响应式React网格系统</a><span>[2019-12-27]</span></td>
+  </tr>
+  <tr>
+    <td><a href="#">rgx - React网格系统基于最小和最大宽度</a><span>[2019-12-27]</span></td>
+  </tr>
+</table>
+      </li>
+     </ul>
+     </div>
+     <div class="yqlj">
+     <ul>
+      <li><a href="https://abduzeedo.com/" target="blank">Abduzeedo - Design Inspiration and Tutorials</a></li>
+      <li><a href="https://github.com/" target="blank">Github登录</a></li>
+      <li><a href="https://www.ctolib.com/" target="blank">CTOLib码库</a></li>
+      <li><a href="https://www.csdn.net/" target="blank">CSDN-专业IT技术社区</a></li>
+      <li><a href="https://www.w3school.com.cn/index.html" target="blank">w3school 在线教程</a></li>
+      <li><a href="https://www.canva.cn/" target="blank">Canva在线平面设计软件-Canva中文官网</a></li>
+      <li><a href="http://www.vogue.com.cn/" target="blank">VOGUE时尚网《VOGUE服饰与美容》杂志官网</a></li>
+      <li><a href="https://www.yangqq.com/link.html" target="blank">优秀个人博客一个展示个人博客站长个人网站的博客平台</a></li>
+      <li><a href="https://pixabay.com/" target="blank">Pixabay-惊人的免费图片</a></li>
+    </ul>
+    </div>
+  </div><!-- content1 -->
+ </div><!-- zhuanti -->
+</div><!-- liftlist -->
+</div><!-- main -->
+</div>
+<div id="clear"></div>
+<footer>
+ <div id="boxs">
+  <div id="wxbox">
+  <img src="images/wxm.png" width="100" height="100"><span><h2>我的微信</h2></span>
+  </div>
+
+  <div id="endfont">
+  <h2>站点声明：</h2>本站为非盈利性个人网站，所有文章版权均属于其源作者所有。<br>如有侵权，敬请来信联系我们，我们立即删除。<br>站长邮箱：<a href="mailto:2427128486@qq.com">2427128486@qq.com</a>。
+  </div>
+ </div>
+</footer>
+</body>
+</html>
